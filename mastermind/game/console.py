@@ -1,3 +1,4 @@
+# The console class outputs and prints various things that the director class tells it to do.
 class Console:
 
     def print_blank_line(self):
@@ -11,7 +12,7 @@ class Console:
 
     def print_turn(self, player):
         # Prints player's turn
-        print(f"{player.get_name}'s turn: ")
-        
+        print(f"{player.get_name()}'s turn: ")
+
     def print_win(self, player):
-        print(f"{player.get_name} won!")
+        print(f"{player.get_name()} won!")
