@@ -2,13 +2,14 @@
 class Player:
     """
     """
+
     def __init__(self, name):
         """
         """
         self._name = name
-        self._guess = None
-        self._hint = None
-        
+        self._guess = "----"
+        self._hint = "****"
+
     def get_guess(self):
         """
         """
@@ -23,12 +24,12 @@ class Player:
         """
         """
         self._guess = guess
-        
+
     def set_hint(self, hint):
         """
         """
         self._hint = hint
-        
+
     def get_hint(self):
         """
         """
