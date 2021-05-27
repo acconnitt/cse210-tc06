@@ -28,3 +28,12 @@ class Guess:
         
         return self.__guess
 
+    def check_win(self):
+        win = False
+        for letter in self.hint:
+            if letter == "X":
+                win = True
+            else:
+                win = False
+                break
+        return win
