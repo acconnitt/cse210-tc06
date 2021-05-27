@@ -6,7 +6,7 @@ class Guess:
         """
         self.__code = str(code)
         self.__guess = str(guess)
-        self.hint = "OOOO"
+        self.hint = "****"
 
     def check_guess(self):
         index = 0
@@ -14,6 +14,8 @@ class Guess:
         for letter in self.__code:
             if letter == self.__guess[index]:
                 x[index] = "X"
+            elif self.__guess[index] in self.__code:
+                x[index] = "O"
             index += 1
         self.hint = "".join(x)
         
