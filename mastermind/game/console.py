@@ -12,4 +12,6 @@ class Console:
     def print_turn(self, player):
         # Prints player's turn
         print(f"{player.get_name}'s turn: ")
-
+        
+    def print_win(self, player):
+        print(f"{player.get_name} won!")
