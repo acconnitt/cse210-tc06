@@ -7,6 +7,7 @@ class Player:
         """
         self._name = name
         self._guess = None
+        self._hint = None
         
     def get_guess(self):
         """
@@ -22,3 +23,13 @@ class Player:
         """
         """
         self._guess = guess
+        
+    def set_hint(self, hint):
+        """
+        """
+        self._hint = hint
+        
+    def get_hint(self):
+        """
+        """
+        return self._hint
