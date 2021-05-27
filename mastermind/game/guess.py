@@ -2,7 +2,7 @@
 # The guess class gets and stores the last guess of each player.
 class Guess:
     
-    def __init__(self, code, guess):
+    def __init__(self, code, guess="____"):
         """The class constructor.  
         """
         self.__code = str(code)
