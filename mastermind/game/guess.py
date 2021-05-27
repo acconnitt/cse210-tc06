@@ -7,7 +7,7 @@ class Guess:
         """
         self.__code = str(code)
         self.__guess = str(guess)
-        self.hint = "0000"
+        self.hint = "OOOO"
 
     def check_guess(self):
         index = 0
