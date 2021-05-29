@@ -3,20 +3,34 @@ class Player:
     """
     """
 
-    def __init__(self, name, guess, code):
+    def __init__(self, name):
         """
         """
         self._name = name
-        self.guess = guess
-        self.code = code
+        self._guess = "----"
+        self._hint = "****"
+
+    def get_guess(self):
+        """
+        """
+        return self._guess
 
     def get_name(self):
         """
         """
         return self._name
 
-    def get_guess(self):
-        return self.guess.get_guess()
+    def set_guess(self, guess):
+        """
+        """
+        self._guess = guess
+
+    def set_hint(self, hint):
+        """
+        """
+        self._hint = hint
 
     def get_hint(self):
-        return self.guess.hint
+        """
+        """
+        return self._hint
