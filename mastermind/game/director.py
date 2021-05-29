@@ -12,51 +12,55 @@ class Director:
         self.roster = Roster()
         self.console = Console()
         self.keep_playing = True
+        self.win = False
 
     def start_game(self):
         self.prepare_game()
+        self.roster.next_player()
         while self.keep_playing:
             self._get_inputs()
             self._do_updates()
-            self._do_outputs()
-
+            self.roster.next_player()
 
     def _get_inputs(self):
         player = self.roster.get_current()
-        code = player.code.get_code()
-
         self.console.print_blank_line()
         self.console.print_players(self.roster)
         self.console.print_blank_line()
-
-        
         self.console.print_turn(player)
-        guess = input("What is your guess? ")
+
+        valid_guess = False
+
+        while not valid_guess:
+            guess = input("What is your guess? ")
+            for i in guess:
+                if i.isalpha():
+                    print("Your guess was invalid because it contained letters, please try again. ")
+                    break
+            if len(guess) > 4 or len(guess) < 4:
+                print("Your guess was invalid because it wasn't 4 characters long, please try again.")
+            else:
+                valid_guess = True
+
         player.guess.set_guess(guess)
         player.guess.check_guess()
-        
+        self.win = player.guess.check_win()
 
     def _do_updates(self):
-        pass
-
-    def _do_outputs(self):
-        self.roster.next_player()
-        
-        
+        if self.win == True:
+            self.console.print_win(self.roster.get_current())
+            self.keep_playing = False
+        elif self.win == False:
+            pass
 
     def prepare_game(self):
         """Prepares the game before it begins. In this case, that means getting the player names and adding them to the roster.
-
             Args:
                 self (Director): An instance of Director.
         """
-
+        code = Code()
+        guess = Guess(code.get_code())
         for n in range(2):
             name = input(f"Enter a name for player {n + 1}: ")
-            code = Code()
-            guess = Guess(code.get_code())
             player = Player(name, guess, code)
             self.roster.add_player(player)
-
-
-
