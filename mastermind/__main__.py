@@ -1,4 +1,4 @@
 from game.director import Director
 
-director = Director()
-director.start_game()
+director = Director() # Calls the Director Class
+director.start_game() # Calls start_game method from Director Class
