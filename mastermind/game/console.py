@@ -16,4 +16,5 @@ class Console:
         print(f"{player.get_name()}'s turn: ")
 
     def print_win(self, player):
+        # Print player's name if he/she wons
         print(f"{player.get_name()} won!")
