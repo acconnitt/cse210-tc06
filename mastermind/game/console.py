@@ -8,13 +8,11 @@ class Console:
     def print_players(self, roster):
         # Print player's name and the start guess and hint string
         for player in roster.players:
-            print(
-                f"Player {player.get_name()}: {player.get_guess()}, {player.get_hint()}")
+            print(f"Player {player.get_name()}: {player.get_guess()}, {player.get_hint()}")
 
     def print_turn(self, player):
         # Prints player's turn
         print(f"{player.get_name()}'s turn: ")
 
     def print_win(self, player):
-        # Print player's name if he/she wons
         print(f"{player.get_name()} won!")
