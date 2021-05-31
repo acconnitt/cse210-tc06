@@ -11,16 +11,13 @@ class Roster:
 
     def __init__(self):
         """The class constructor.
-
-        Args:
-            self (Roster): an instance of Roster.
         """
         self.current = -1
         self.players = []
 
     def add_player(self, player):
         """Adds the given player to the roster
-
+        
         Args:
             self (Roster): An instance of Roster.
             player (Player): The player object to add.
