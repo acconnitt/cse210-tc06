@@ -18,6 +18,7 @@ class Director:
         self.prepare_game()
         self.roster.next_player()
         while self.keep_playing:
+            print()
             self._get_inputs()
             self._do_updates()
             self.roster.next_player()
@@ -37,19 +38,20 @@ class Director:
                 if i.isalpha():
                     print("Your guess was invalid because it contained letters, please try again. ")
                     break
-            if len(guess) > 4 or len(guess) < 4:
+            if len(guess) != 4:
                 print("Your guess was invalid because it wasn't 4 characters long, please try again.")
             else:
                 valid_guess = True
+
         player.guess.set_guess(guess)
         player.guess.check_guess()
         self.win = player.guess.check_win()
 
     def _do_updates(self):
-        if self.win == True:
+        if self.win:
             self.console.print_win(self.roster.get_current())
             self.keep_playing = False
-        elif self.win == False:
+        elif not self.win:
             pass
 
     def prepare_game(self):
@@ -57,10 +59,10 @@ class Director:
             Args:
                 self (Director): An instance of Director.
         """
-        code = Code()    
-        new_code = code.get_code()
-        for n in range(2): 
-            name = input(f"Enter a name for player {n + 1}: ") 
-            guess = Guess(new_code) 
-            player = Player(name, guess, code)  
-            self.roster.add_player(player) 
+        code = Code()
+        the_code = code.get_code()
+        for n in range(2):
+            name = input(f"Enter a name for player {n + 1}: ")
+            guess = Guess(the_code)
+            player = Player(name, guess, code)
+            self.roster.add_player(player)
