@@ -1,5 +1,6 @@
-# The guess class gets and stores the last guess of each player.
 class Guess:
+    """ The guess class gets and stores the last guess of each player.
+    """
 
     def __init__(self, code, guess="____"):
         """The class constructor.
@@ -9,6 +10,8 @@ class Guess:
         self.code = str(code)
 
     def check_guess(self):
+        """Check if user guess is same as system generated code
+        """
         index = 0
         self.hint = "****"
         x = list(self.hint)
@@ -21,12 +24,14 @@ class Guess:
         self.hint = "".join(x)
 
     def set_guess(self, guess):
-        self.guess = guess
+        self.guess = guess # Set guess
 
     def get_guess(self):
-        return self.guess
+        return self.guess # Return guess
 
     def check_win(self):
+        """Check if player won
+        """
         win = False
         for letter in self.hint:
             if letter == "X":
