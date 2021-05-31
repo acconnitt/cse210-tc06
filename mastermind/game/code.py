@@ -6,12 +6,11 @@ class Code:
 
     def __init__(self):
         # Variable that stores the code
-        self.code = 0 
+        self.code = 0
 
     def generate_code(self):
         # This generates a code using the random module
         self.code = random.randint(1000, 9999)
-        print(self.code)
 
     def get_code(self):
         # Calls the generate code method and returns that code
