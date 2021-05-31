@@ -1,5 +1,6 @@
-# The code class generates the secret code at the start of the game.
+
 import random
+# The code class generates the secret code at the start of the game.
 
 
 class Code:
